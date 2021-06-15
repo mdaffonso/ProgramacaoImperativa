@@ -43,9 +43,7 @@ const tabuada = (limit = 10) => {
         }
     )[0].length;
 
-    for(i = 1; i <= limit; i++) {
-        makeCard(i, strings, longest)
-    }
+    makeCard(limit, strings, longest)
 }
 
-tabuada()
+tabuada(1005491)
