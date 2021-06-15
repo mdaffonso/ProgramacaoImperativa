@@ -28,7 +28,7 @@ const tabuada = (limit = 10) => {
     const strings = []
     const charactersBeforeEquals = `${limit}`.length*2+3
     for(i = 1; i <= limit; i++) {
-        for(j = 1; j <= limit; j++) {
+        for(j = 1; j <= 10; j++) {
             const leftSideOfEquation = `${i} x ${j}`
             const spacesAdded = new Array(charactersBeforeEquals-leftSideOfEquation.length+1).fill('=').join('')
             strings.push(`${leftSideOfEquation} ${spacesAdded} ${i*j}`)
