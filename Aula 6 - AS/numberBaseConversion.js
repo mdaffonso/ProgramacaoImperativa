@@ -1,21 +1,30 @@
-// a funçao numberBaseConversion aceita 2 parâmetros:
-//      num  ->  o número, em base decimal, que deverá ser convertido nas bases binária, octal e hexadecimal
-//      unit ->  a definição do tamanho do output: 
-//               por padrão é false, o que retorna toda a tabela de conversão, do 0 até o número escolhido; 
-//               se for true, retorna somente o número escolhido
-// o resultado é impresso no console em forma de colunas
+// a funçao numberBaseConversion aceita 3 parâmetros:
+//      num    ->  o número, em base decimal, que deverá ser convertido nas bases binária, octal e hexadecimal
+//      full   ->  a definição do tamanho do output: 
+//                 por padrão é false, o que retorna somente o número escolhido; 
+//                 se for true, retorna toda a tabela de conversão, do 0 até o número escolhido
+// retorna o resultado impresso no console em forma de colunas
 
 String.prototype.replaceAt = function(index, replacement) {
     return this.substr(0, index) + replacement + this.substr(index + replacement.length);
 }
 
-const numberBaseConversion = (num = 20, unit = false) => {
+const numberBaseConversion = (num = 20, full = null) => {
+
+    const addSpaces = (str) => {
+        let spaces = ''
+        if(str.length < 3) {
+            const numSpaces = 3 - str.length
+            spaces = new Array(numSpaces).fill(' ').join('')
+        }
+        return spaces + str
+    }
 
     if(typeof num !== 'number') {
         return console.log ('O argumento fornecido deve ser um número.')
     }
 
-    if(unit) {
+    if(!full) {
         const bases = [
             'bin',
             'oct',
@@ -23,11 +32,18 @@ const numberBaseConversion = (num = 20, unit = false) => {
             'hex'
         ]
 
+        const [bin, oct, dec, hex] = [
+            num.toString(2),
+            num.toString(8),
+            num.toString(10),
+            num.toString(16).toUpperCase()
+        ]
+
         const lines = [
-            `## ${num.toString(2)} ##`,
-            `## ${num.toString(8)} ##`,
-            `## ${num.toString(10)} ##`,
-            `## ${num.toString(16).toUpperCase()} ##`,
+            `## ${addSpaces(bin)} ##`,
+            `## ${addSpaces(oct)} ##`,
+            `## ${addSpaces(dec)} ##`,
+            `## ${addSpaces(hex)} ##`,
         ]
 
         const bottomCaps = lines.map(value => new Array(value.length).fill('#').join(''))
@@ -94,4 +110,4 @@ const numberBaseConversion = (num = 20, unit = false) => {
 
 }
 
-numberBaseConversion(250000, true)
+numberBaseConversion(150, true)
