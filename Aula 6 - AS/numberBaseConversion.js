@@ -110,4 +110,4 @@ const numberBaseConversion = (num = 20, full = null) => {
 
 }
 
-numberBaseConversion(150, true)
+numberBaseConversion(16500, true)
