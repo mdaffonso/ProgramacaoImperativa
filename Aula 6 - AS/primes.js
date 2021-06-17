@@ -1,10 +1,14 @@
 Number.prototype.isPrime = function() {
+    if(this == 2) return true
+    if(this !== 2 && this % 2 === 0) return false
+
     if(
-        this < 2 || (
+        this == 1
+        || this < 2 
+        || (
             this > 1009
             && (
-                this % 2 === 0 
-                || this % 3 === 0 
+                this % 3 === 0 
                 || this % 5 === 0 
                 || this % 7 === 0 
                 || this % 11 === 0
@@ -179,11 +183,19 @@ Number.prototype.isPrime = function() {
     }
 
     const divisors = [this]
-    for(let i = Math.floor(this)/2; i >= 1; i--) {
-        if(this%i === 0) {
+
+    for(let i = 1; i <= (Math.floor(this)/2)+1; i = i+2) {
+        if(this % i === 0) {
             divisors.push(i)
-            if(divisors.length !== 2) return false
         }
+        if(divisors.length !== 2) return false
+    }
+
+    for(let i = 2; i <= 10; i = i+2) {
+        if(this % i === 0) {
+            divisors.push(i)
+        }
+        if(divisors.length !== 2) return false
     }
     return true
 }
@@ -203,11 +215,13 @@ Math.nthPrime = (number) => {
 }
 
 const primes = []
-let num = 20000
-console.log(`Números primos entre 1 e ${num}: `)
-for(let i = 2; i <= num; i++) {
+let num = 50000
+
+console.log('Calculando...', '\n', '\n')
+for(let i = 1; i <= num; i++) {
     if(i.isPrime()) primes.push(i)
 }
+console.log(`${primes.length} números entre 1 e ${num} são primos: `)
 console.log(primes.join(', '))
 
 console.log('\n')
