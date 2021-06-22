@@ -224,7 +224,7 @@ for(let i = 1; i <= num; i++) {
 console.log(`${primes.length} números entre 1 e ${num} são primos: `)
 console.log(primes.join(', '))
 
-console.log('\n')
+// console.log('\n')
 
-num = 150
-console.log(`O ${num}º primo é o número ${Math.nthPrime(num)}`)
+// num = 3523
+// console.log(`O ${num}º primo é o número ${Math.nthPrime(num)}`)
