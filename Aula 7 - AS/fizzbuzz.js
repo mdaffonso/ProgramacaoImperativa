@@ -1,9 +1,7 @@
 const fizzbuzz = (a, b) => {
-    let min = Math.min(a, b)
-    let max = Math.max(a, b)
-    for(let i=min;i<=max;i++){
-        console.log([['fizz'][i%3],['buzz'][i%5]].join('')||i)
+    for(let i=1;i<=100;i++){
+        console.log([['Fizz'][i%a],['Buzz'][i%b]].join('')||i)
     }
 }
 
-fizzbuzz(13, 29)
+fizzbuzz(3, 5)

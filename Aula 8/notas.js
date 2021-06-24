@@ -11,6 +11,13 @@ class Aluno {
     this.aprovado = this.media >= 7 ? true : false
   }
 
+  addMark(value) {
+    if(typeof value !== "number") {
+      return console.log("A nota inserida deve ser um número.")
+    }
+    return this.notas.push(value)
+  }
+
   printReport() {
     return console.log(`O aluno ${this.nome} obteve média ${this.media} e ${this.aprovado ? `está aprovado!` : `está reprovado. :(`}`)
   }
