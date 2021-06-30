@@ -15,7 +15,7 @@ class Conta {
       return console.log(`Você tentou sacar R$ ${value} da conta de ${this.titular}. Saldo em conta insuficiente.`)
     }
     this.saldo -= value
-    console.log(`Foram sacados R$ ${value} da conta de ${this.titular}. O saldo atual é R$ ${this.saldo}`)
+    console.log(`Foram sacados R$ ${value} da conta de ${this.titular}. O saldo atual é R$ ${this.saldo}.`)
   }
 }
 
