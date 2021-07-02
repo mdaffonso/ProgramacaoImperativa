@@ -39,11 +39,9 @@ const useMicrowave = (dish = null, time = null) => {
     }
   }).find(param => param.food === dish.toLowerCase())
 
-  if (!findSetup) {
-    return `Este microondas não tem configurações predefinidas para ${dish}. Sentimos muito pela inconveniência. 🙁`
-  }
-
   switch (true) {
+    case !findSetup:
+      return `Este microondas não tem configurações predefinidas para ${dish}. Sentimos muito pela inconveniência. 🙁`
     case time >= findSetup.time && time <= findSetup.limitToBurn:
     case time === null:
       return `Seu prato de ${findSetup.food} está pronto! ${findSetup.emoji}\nBom apetite! 😃`
@@ -58,4 +56,4 @@ const useMicrowave = (dish = null, time = null) => {
   }
 }
 
-console.log(useMicrowave("brigadeiro", 15))
+console.log(useMicrowave("macarrão", 8))
