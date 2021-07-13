@@ -56,4 +56,4 @@ const useMicrowave = (dish = null, time = null) => {
   }
 }
 
-console.log(useMicrowave("macarrão", 8))
+console.log(useMicrowave("pipoca", 10))
