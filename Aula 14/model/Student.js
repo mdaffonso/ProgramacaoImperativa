@@ -3,7 +3,7 @@ class Student {
     this.name = `${name}`
     this.absences = Number.parseInt(absences) || 0
     this.grades = Array.isArray(grades) ? grades : []
-    this.average = this.#getAverage()
+    this.average = Number.parseFloat(this.#getAverage())
   }
 
   #getAverage() {

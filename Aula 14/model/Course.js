@@ -16,11 +16,8 @@ class Course {
     }
 
     return (
-      student.average >= this.passingGrade
-      && (
-        student.absences < this.absenceLimit
-        || student.average >= this.passingGrade*1.1
-      )
+      (student.average >= this.passingGrade && student.absences < this.absenceLimit)
+      || (student.average >= this.passingGrade*1.1 && student.absences === this.absenceLimit)
     ) ? true 
       : false
   }
