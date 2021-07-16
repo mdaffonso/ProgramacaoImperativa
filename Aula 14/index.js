@@ -11,4 +11,18 @@ students.forEach(student => {
   course.addStudent(student)
 })
 
-console.log(course.studentsList)
+
+const executeTest = (test) => {
+  switch(test) {
+    case "listAll":
+      return course.studentsList
+    case "listPassing":
+      return course.getPassingStudents()
+    case "course":
+      return course
+    default:
+      return "você deve fornecer um dos seguintes valores para a função: listAll | listPassing | course"
+  }
+}
+
+console.log(executeTest("course"))

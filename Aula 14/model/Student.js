@@ -18,6 +18,11 @@ class Student {
   recordAbsence() {
     this.absences++
   }
+
+  addGrade(grade) {
+    const gradeToPush = Number.parseFloat(grade) || 0
+    this.grades.push(gradeToPush)
+  }
 }
 
 module.exports = Student
